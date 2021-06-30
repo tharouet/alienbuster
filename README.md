@@ -1,10 +1,11 @@
-# alienbuster
-Golang / SDL Game - Space shooter called Alien Buster, Feel free to contribute 
+Golang / SDL Game - This is a space shooter game called "Alien Buster" where a player will be busting alien ships and destroying them before they land on take over planet earth! 
 
-This is a componment orientented architecture but each element is kept on a separate package.
+Your mission is to destroy all enemy spaceships or our planet will be invaded and it will be your fault! 
 
-I will be adding more levels and enemies and player option over time, please feel free to submit any updates and I will be happy to integrate them.
+This is a component oriented architecture but each element is kept on a separate package. 
 
-If you have any question please let me know.
+I will be adding more levels, enemies, player, and weapons options over time.
 
-Happy coding! 
+please feel free to submit any updates and I will be happy to integrate them. Any graphics will be much appreciated too! If you have any question please let me know. 
+
+Happy coding everyone!
