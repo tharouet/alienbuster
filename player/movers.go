@@ -4,9 +4,9 @@ import (
 	"math"
 	"time"
 
-	"github.com/sandbox/bullet"
-	"github.com/sandbox/config"
-	"github.com/sandbox/element"
+	"github.com/alienbuster/bullet"
+	"github.com/alienbuster/config"
+	"github.com/alienbuster/element"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

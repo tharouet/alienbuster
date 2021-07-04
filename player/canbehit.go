@@ -1,8 +1,8 @@
 package player
 
 import (
-	"github.com/sandbox/animator"
-	"github.com/sandbox/element"
+	"github.com/alienbuster/animator"
+	"github.com/alienbuster/element"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

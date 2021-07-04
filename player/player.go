@@ -3,16 +3,16 @@ package player
 import (
 	"time"
 
-	"github.com/sandbox/animator"
-	"github.com/sandbox/config"
-	"github.com/sandbox/element"
+	"github.com/alienbuster/animator"
+	"github.com/alienbuster/config"
+	"github.com/alienbuster/element"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
 const (
 	playerSpeed        = 8
 	playerSize         = 50
-	playerShotCoolDown = time.Millisecond * 200
+	playerShotCoolDown = time.Millisecond * 100
 )
 
 func New(Renderer *sdl.Renderer) *element.Element {
