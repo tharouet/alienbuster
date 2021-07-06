@@ -1,7 +1,7 @@
 package builder
 
 import (
-	"github.com/sandbox/element"
+	"github.com/alienbuster/element"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

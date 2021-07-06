@@ -5,8 +5,8 @@ import (
 	"path"
 	"time"
 
-	"github.com/sandbox/builder"
-	"github.com/sandbox/element"
+	"github.com/alienbuster/builder"
+	"github.com/alienbuster/element"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

@@ -1,9 +1,9 @@
 package player
 
 import (
-	"github.com/sandbox/animator"
-	"github.com/sandbox/element"
-	"github.com/sandbox/score"
+	"github.com/alienbuster/animator"
+	"github.com/alienbuster/element"
+	"github.com/alienbuster/score"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

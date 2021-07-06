@@ -1,10 +1,10 @@
 package enemy
 
 import (
-	"github.com/sandbox/animator"
-	"github.com/sandbox/config"
-	"github.com/sandbox/element"
-	"github.com/sandbox/score"
+	"github.com/alienbuster/animator"
+	"github.com/alienbuster/config"
+	"github.com/alienbuster/element"
+	"github.com/alienbuster/score"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

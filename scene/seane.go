@@ -1,8 +1,8 @@
 package scene
 
 import (
-	"github.com/sandbox/element"
-	"github.com/sandbox/spriterenderer"
+	"github.com/alienbuster/element"
+	"github.com/alienbuster/spriterenderer"
 	"github.com/veandco/go-sdl2/sdl"
 )
 

@@ -3,9 +3,9 @@ package player
 import (
 	"time"
 
-	"github.com/sandbox/animator"
-	"github.com/sandbox/config"
-	"github.com/sandbox/element"
+	"github.com/alienbuster/animator"
+	"github.com/alienbuster/config"
+	"github.com/alienbuster/element"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
