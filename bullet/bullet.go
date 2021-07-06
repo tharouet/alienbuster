@@ -8,9 +8,6 @@ import (
 
 const (
 	BulletSpeed = 20
-	BulletSize  = 25
-	WBulletSize = 25
-	HBulletSize = 50
 )
 
 func New(R *sdl.Renderer) *element.Element {
@@ -22,7 +19,7 @@ func New(R *sdl.Renderer) *element.Element {
 	col := element.Circle{
 		X:      bullet.Position.X,
 		Y:      bullet.Position.Y,
-		Radius: 4}
+		Radius: 6}
 	bullet.Collisions = append(bullet.Collisions, col)
 	bullet.Name = "bullet"
 	return bullet

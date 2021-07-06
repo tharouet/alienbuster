@@ -3,6 +3,7 @@ package player
 import (
 	"github.com/sandbox/animator"
 	"github.com/sandbox/element"
+	"github.com/sandbox/score"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -33,6 +34,7 @@ func (c *CanBeHit) OnUpdate() error {
 func (c *CanBeHit) OnCollition(other *element.Element) error {
 	if c.Container.Name == "player" {
 		c.Animator.SetSequnce("destroy")
+		score.Board.Lives -= 1
 	}
 	return nil
 }

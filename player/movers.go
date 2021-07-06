@@ -24,14 +24,20 @@ func (mover *KeyboardMover) OnUpdate() error {
 	keys := sdl.GetKeyboardState()
 	if keys[sdl.SCANCODE_LEFT] == 1 {
 		mover.Container.Position.X -= mover.Speed * config.Delta
+		mover.Container.Collisions[0].X = mover.Container.Position.X
 	} else if keys[sdl.SCANCODE_RIGHT] == 1 {
 		mover.Container.Position.X += mover.Speed * config.Delta
+		mover.Container.Collisions[0].X = mover.Container.Position.X
 	}
+
 	if keys[sdl.SCANCODE_UP] == 1 {
 		mover.Container.Position.Y -= mover.Speed * config.Delta
+		mover.Container.Collisions[0].Y = mover.Container.Position.Y
 	} else if keys[sdl.SCANCODE_DOWN] == 1 {
 		mover.Container.Position.Y += mover.Speed * config.Delta
+		mover.Container.Collisions[0].Y = mover.Container.Position.Y
 	}
+
 	return nil
 }
 
@@ -40,6 +46,7 @@ func (mover *KeyboardMover) OnDraw(renderer *sdl.Renderer) error {
 }
 
 func (m *KeyboardMover) OnCollition(other *element.Element) error {
+	m.Container.Active = false
 	return nil
 }
 
@@ -71,6 +78,7 @@ func (mover *KeyboardShooter) OnUpdate() error {
 func (mover *KeyboardShooter) OnDraw(renderer *sdl.Renderer) error {
 	return nil
 }
+
 func (mover *KeyboardShooter) shoot(x, y float64) {
 	if b, ok := bullet.BulletFromPool(); ok {
 		b.Active = true

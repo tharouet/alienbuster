@@ -2,6 +2,7 @@ package enemy
 
 import (
 	"github.com/sandbox/animator"
+	"github.com/sandbox/config"
 	"github.com/sandbox/element"
 	"github.com/sandbox/score"
 	"github.com/veandco/go-sdl2/sdl"
@@ -29,14 +30,15 @@ func (c *CanBeHit) OnUpdate() error {
 		score.Board.EnemyCounter--
 		c.Animator.Container.Active = false
 	}
+	if c.Container.Position.Y > config.ScreenHight+200 {
+		c.Container.Active = false
+		score.Board.EnemyCounter--
+	}
 	return nil
 }
 
 func (c *CanBeHit) OnCollition(other *element.Element) error {
 	if c.Container.Name == "enemy" {
-		c.Animator.SetSequnce("destroy")
-	}
-	if c.Container.Name == "player" {
 		c.Animator.SetSequnce("destroy")
 	}
 	return nil

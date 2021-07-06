@@ -31,12 +31,6 @@ func New(Renderer *sdl.Renderer) *element.Element {
 		panic(err)
 	}
 
-	mover := NewKeybordMover(player, playerSpeed)
-	player.AddComponent(mover)
-
-	shooter := NewKeyboardShooter(player, playerShotCoolDown)
-	player.AddComponent(shooter)
-
 	seqs := map[string]*animator.Sequence{
 		"idle":    idleSequence,
 		"destroy": destroySequence}
@@ -45,13 +39,20 @@ func New(Renderer *sdl.Renderer) *element.Element {
 	player.AddComponent(animator)
 
 	col := element.Circle{
-		X:      player.Position.X - 20,
-		Y:      player.Position.Y - 20,
-		Radius: 20}
+		X:      player.Position.X,
+		Y:      player.Position.Y,
+		Radius: 12}
 
 	player.Collisions = append(player.Collisions, col)
+
 	canbehit := NewCanBeHit(player)
 	player.AddComponent(canbehit)
+
+	mover := NewKeybordMover(player, playerSpeed)
+	player.AddComponent(mover)
+
+	shooter := NewKeyboardShooter(player, playerShotCoolDown)
+	player.AddComponent(shooter)
 
 	player.Name = "player"
 	return player

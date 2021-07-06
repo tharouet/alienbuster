@@ -13,9 +13,14 @@ import (
 	"github.com/sandbox/scene"
 	"github.com/sandbox/score"
 	"github.com/veandco/go-sdl2/sdl"
+	"github.com/veandco/go-sdl2/ttf"
 )
 
 func main() {
+	if err := ttf.Init(); err != nil {
+		log.Println("Initializing Error:", err)
+		return
+	}
 	if err := sdl.Init(sdl.INIT_EVERYTHING); err != nil {
 		log.Println("Initializing Error:", err)
 		return
@@ -42,20 +47,15 @@ func main() {
 	plr := player.New(Renderer)
 	element.Elements = append(element.Elements, plr)
 
-	// add another player unit
-	plr2 := player.New(Renderer)
-	plr2.Position.X = plr2.Position.X + 50
-	element.Elements = append(element.Elements, plr2)
-
-	// add another player unit
-	plr3 := player.New(Renderer)
-	plr3.Position.X = plr3.Position.X + 25
-	plr3.Position.Y = plr3.Position.Y - 50
-	element.Elements = append(element.Elements, plr3)
-
 	bullet.InitBulletPoll(Renderer)
-
 	for {
+
+		//WriteChoices(Renderer)
+
+		if score.Board.Lives > 0 && !plr.Active {
+			plr = player.New(Renderer)
+			element.Elements = append(element.Elements, plr)
+		}
 
 		// add enemy and level up
 		if score.Board.EnemyCounter == 0 {
@@ -93,8 +93,21 @@ func main() {
 			fmt.Println("Collision Error: ", err)
 			return
 		}
-
+		WriteChoices(Renderer)
 		Renderer.Present()
 		config.Delta = time.Since(framStartTime).Seconds() * config.TargetTicksPerSecond
+
 	}
+}
+
+func WriteChoices(renderer *sdl.Renderer) {
+	font, _ := ttf.OpenFont("data.ttf", 18)
+	font.SetOutline(0)
+	Score := fmt.Sprintf("Level: %v   | Lives:   %v   | Enemies Remaining: %v", score.Board.Level, score.Board.Lives, score.Board.EnemyCounter)
+	surface, _ := font.RenderUTF8Solid(Score, sdl.Color{11, 156, 49, 255})
+	texture, _ := renderer.CreateTextureFromSurface(surface)
+	renderer.Copy(texture, nil, &sdl.Rect{W: surface.W, H: surface.H})
+	font.Close()
+	surface.Free()
+	texture.Destroy()
 }
